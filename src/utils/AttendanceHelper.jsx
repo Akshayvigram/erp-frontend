@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { useAuth } from '../context/authContext'
 
 
 export const columns = [
@@ -40,10 +39,10 @@ export const columns = [
     },
 ]  
 
-export const AttendanceButtons = ({ id ,status, statusChange}) => {
+export const AttendanceButtons = ({ employeeId ,status, statusChange}) => {
     const markEmployee = async (status, employeeId, date) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/attendance/update/${employeeId}`, {
+            const response = await axios.put(`https://erp-backend-tawny.vercel.app/api/attendance/update/${employeeId}`, {
                 status: status,
                 employeeId: employeeId,
                 date: date,
